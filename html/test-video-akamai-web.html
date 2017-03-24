@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Akamai Video Test</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link rel="shortcut icon" type="image/x-icon" href="http://ps.hket.com/favicon-v2.ico">
+<script type="text/javascript" src="http://www.hket.com/eti/scripts/jquery/jquery-1.7.1.min.js"></script>
+<style type="text/css">
+#video-clips { margin-left:6px }
+#video-clips td { text-align:center; float:left; width:200px; height:175px }
+#video-clips img { cursor:pointer; display:block; width:196px; height:150px; float:left; border:2px solid white }
+</style>
+<meta name="epc-menu" content="樓市快訊">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<script type="text/javascript" src="http://www.hket.com/eti/scripts/flow_player/flowplayer-3.2.11.js"></script>
+<script type="text/javascript" src="http://www.hket.com/eti/scripts/flow_player/flowplayer-controller-config.js"></script>
+<script type="text/javascript" src="http://www.hket.com/eti/scripts/flow_player/flowplayer.ipad-3.2.12.min.js"></script>
+<script type="text/javascript">
+		function setVideoPlayer(playerId, listener, clipUrl, canvasUrl, autoPlayFlag, cutOffFlag) {
+			//alert("test" + cutOffFlag);
+			$("#video-clips img").css("border-color", "white");
+			$(listener).css("border-color", "#06c");
+			$f(playerId, "http://ps.hket.com/res/scripts/flow_player/flowplayer.commercial-3.2.11.swf", {
+				key: "#$6074d065731a861b12b",
+				onFullscreen: function() {
+				this.getPlugin("canvas").css({backgroundImage: "none"});
+				},
+				contextMenu: [{
+					"About iET" : function() {
+					location.href = "http://www.hket.com";
+				}},
+					'-',
+					'經濟日報集團'
+				],
+				clip: {
+					live:true,
+					autoPlay:autoPlayFlag,
+					provider:'akamai',
+					stopLiveOnPause:false,
+					accelerated:true,
+					bufferLength:5,
+					scaling:'fit',
+					//url: clipUrl,
+					urlResolvers: [ 'smil', 'f4m' ]
+				},
+				playlist:[
+					clipUrl
+				],
+				canvas: {
+					background:'url(' + canvasUrl + ') no-repeat 50pct 50pct',
+					backgroundGradient:'none'
+				},
+				scaling: {
+					scale:'fit'
+				},
+				showErrors:false,
+				plugins: {
+					controls: {
+						fullscreen:'false',
+						playlist:'false',
+						backgroundGradient:'none',
+						backgroundColor:'transparent',
+						buttonColor: 'rgba(0, 0, 0, 0.9)',
+						buttonOverColor: '#000000',
+						backgroundColor: '#D7D7D7',
+						backgroundGradient: 'medium',
+						sliderColor: '#FFFFFF',
+						sliderBorder: '1px solid #808080',
+						volumeSliderColor: '#FFFFFF',
+						volumeBorder: '1px solid #808080',
+						timeColor: '#000000',
+						durationColor: '#535353'
+					},
+					akamai: {
+						url:'http://ps.hket.com/res/scripts/flow_player/AkamaiFlowPlugin-patched.swf',
+						forceNoSubclip:true,
+						useMBRStartupBandwidthCheck:{duration:3},
+						fragmentRetryAttemptsForLostConnectivity:10,
+						liveBufferProfile:'livestable', // OR 'livelowlatency'
+						fragmentRetryAttemptsForLostConnectivity:3,
+						useNetSession:false,
+						netsessionMode:'never', //OR 'opportunistic'
+						enableNetSessionDiscovery:false,
+						enableLogStringOnFragments:false,
+						enableAlternateServerMapping:false,
+						enableEndUserMapping:false,
+					},
+					smil: {
+						url: "http://ps.hket.com/res/scripts/flow_player/flowplayer.smil-3.2.8.swf"
+					}
+				}
+			});
+
+			/*
+			if (cutOffFlag) {
+				$f(playerId).getConfig().logo = {
+					url: 'logo-video-v2.png',
+					fullscreenOnly: false,
+					//displayTime: 10,
+					fadeSpeed: 0,
+					top: 5,
+					left: 5,
+					opacity: 1,
+					linkUrl: "http://ps.hket.com"
+				};
+			}
+			*/
+		}
+	</script>
+</head>
+<body>
+<div id="ps">
+<div style="display:table; width:100%;" class="epc-article-video-panel">
+	<div style="text-align:center; margin:10px">
+		Root
+		<a href="" style="display:block; width:600px; height:338px; text-align:center; margin:auto" id="player-root"></a>
+	</div>
+	<div style="text-align:center; margin:10px">
+		Free
+		<a href="" style="display:block; width:600px; height:338px; text-align:center; margin:auto" id="player-free"></a>
+	</div>
+	<div style="text-align:center; margin:10px">
+		Token
+		<a href="" style="display:block; width:600px; height:338px; text-align:center; margin:auto" id="player-token"></a>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+		
+			setVideoPlayer("player-root",
+				$("#video-clips img").first(),
+				"http://iosflash176108-f.akamaihd.net/z/root_test_,1024x576,720x406,480x270,.mp4.csmil/manifest.f4m",
+				"http://ps.hket.com/res/images/videos/243/002_rigf20110802031_08_600x400_w.jpg",
+				false,
+				true
+			);
+
+			setVideoPlayer("player-free",
+				$("#video-clips img").first(),
+				"http://iosflash176108-f.akamaihd.net/z/free/free_test_,1024x576,720x406,480x270,.mp4.csmil/manifest.f4m",
+				"http://ps.hket.com/res/images/videos/243/002_rigf20110802031_08_600x400_w.jpg",
+				false,
+				true
+			);
+
+			
+			setVideoPlayer("player-token",
+				$("#video-clips img").first(),
+				"http://iosflash176108-f.akamaihd.net/z/token/test_,1024x576,720x406,480x270,.mp4.csmil/manifest.f4m?st=136392~exp=1359136391~acl=/*~hmac=1d67557a93af129193160df3894f56542bcf82dbea21a49f5d09e2178f12de95",
+				"http://ps.hket.com/res/images/videos/243/002_rigf20110802031_08_600x400_w.jpg",
+				false,
+				true
+			);
+			
+		});
+	</script>
+</div>
+</div>
+</body>
+</html>

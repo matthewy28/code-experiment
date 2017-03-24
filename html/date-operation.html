@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+		<script type="text/javascript">
+			var date = $.datepicker.parseDate('dd/mm/yy', "23/12/2012");
+			date.setDate(date.getDate() + 60);
+			console.log("add 60: " + date);
+			date.setDate(date.getDate() - 120);
+			console.log("minus 60: " + date);
+			console.log("customize format: " + $.datepicker.formatDate("dd/mm/yy", date));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

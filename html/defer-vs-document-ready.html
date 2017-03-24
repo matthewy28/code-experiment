@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Defer VS Document Ready</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script type="text/javascript">
+		window.onload = function() { console.log("window onload javascript"); };
+	</script>
+	<script type="text/javascript" src="http://192.168.232.74/js/defer.js" defer="defer"></script>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log("document onload javascript");
+		});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

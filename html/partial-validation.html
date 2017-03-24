@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+  <script>
+	  $("input[name='name1']").on("change focusout", function() {
+		
+	  });
+  </script>  
+</head>
+<body>
+	<form class="cmxform" id="form-test" method="post" action="">
+		<p>
+			<input name="name1" type="text" />
+			<input name="name1" type="text" />
+		</p>
+		<p>
+			<input name="name2" type="text" />
+			
+		</div>
+		<input type="button" value="submit" onclick="forSubmit();" />
+	</form>
+	<button onclick="$('input[name=name2]').first().after($('input[name=name2]').first().clone());">Add Name2</button>
+</body>
+</html>

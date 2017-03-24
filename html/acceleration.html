@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title></title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script type="text/javascript" src="http://192.168.232.74/js/jquery-1.10.1.min.js"></script>
+	<style type="text/css">
+		.road { width:80px; height:40px; float:left; border-width:1px 0 1px 0; border-color:#000; border-style:solid }
+		#car { width:5px; height:10px; background-color:blue; position:absolute }
+		#start { padding:5px; background-color:green; color:#fff }
+	</style>
+	<script type="text/javascript">
+		window.onbeforeunload = function(e) {
+			//e = e || window.event;
+			//if (e)
+				//e.returnValue = "Please confirm to exit";
+			return "Please confirm to exit";
+		};
+	</script>
+	<script type="text/javascript">
+		var vX = 0;
+		var vY = 0;
+		var x = 0;
+		var y = 0;
+		var speed = 0.08;
+		var direction = new Object();
+		var carMover = new Object();
+		var accelUpdatetime = 5;
+		var deccelUpdatetime = 50;
+		var friction = 0.86;
+
+		direction.X = 0;
+		direction.Y = 0;
+
+		document.onkeydown = function(e) {
+			e = e || window.event;
+			switch (e.keyCode) {
+				case 38: //up
+					direction.Y = -1;
+					break;
+				case 40: //down
+					direction.Y = 1;
+					break;
+				case 37: //left
+					//vX -= .8;
+					direction.X = -1;
+					break;
+				case 39: //right
+					//vX += .8;
+					direction.X = 1;
+					break;
+			}
+		};
+
+		document.onkeyup = function(e) {
+			e = e || window.event;
+			switch (e.keyCode) {
+				case 38: //up
+				case 40: //down
+					direction.Y = 0;
+					break;
+				case 37: //left
+				case 39: //right
+					direction.X = 0;
+					break;
+			}
+		};
+
+		function start() {
+			carMover.accel = window.setInterval(function() {
+				var tempX = Math.floor(x + vX);
+				var tempY = Math.floor(y + vY);
+				console.log(tempX);
+				vX += direction.X * speed;
+				vY += direction.Y * speed;
+
+				if (tempX < 0 || tempX > 1000) {
+					vX = 0;
+				} 
+
+				if (tempY < 0 || tempY > 400) {
+					vY = 0;
+				}
+
+				x += vX;
+				y += vY;
+
+				$("#car").offset({ left:x, top:y });
+			}, accelUpdatetime);
+
+			carMover.deccel = window.setInterval(function() {
+				if (direction.X == 0)
+					vX *= friction;
+
+				if (direction.Y == 0)
+					vY *= friction;
+			}, deccelUpdatetime);
+		}
+
+		function stop() {
+			clearInterval(carMover.accel);
+			clearInterval(carMover.deccel);
+		}
+
+		// check if a given offset is inside an specified element
+		function isInside(element, offset) {
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="car"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<div class="road"></div>
+	<button id="start" onclick="start()">Start</button>
+	<button id="start" onclick="stop()">Stop</button>
+</body>
+</html>

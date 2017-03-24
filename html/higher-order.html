@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Composition</title>
+</head>
+<body>
+	<script>
+		var add = (function(x, y) { return x + y; });
+		console.log((function(f, x, y) { return f(x, y); })(add, 1, 2));
+	</script>
+	<script>
+		function sq(x) { return x * x; }
+		function addSq(f, x, y) { return f(x) + y; }
+		console.log(addSq(sq, 3, 1));
+	</script>
+</body>
+</html>

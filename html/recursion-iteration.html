@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Recursion & Iteration Object Factorial</title>
+	<script type="text/javascript">
+		var recursiveFactorial = function(n) {
+			var recursiveHelper = function(product, n) {
+				//console.log("recursions left: " + n + ", product = " + product);
+				return n > 1? n * recursiveHelper(product * n, n - 1): 1;
+			}
+			return recursiveHelper(1, n);
+			//return n > 1? n * recursiveFactorial(n - 1): 1;
+		}
+
+		var iterativeFactorial = function(n) {
+			var iterationHelper = function(product, n) {
+				//console.log("iterations left: " + n + ", product = " + product);
+				return n > 1? iterationHelper(product * n, n - 1): product;
+			}
+			return iterationHelper(1, n);
+		}
+
+		function fullIterativeFactorial(n) {
+			var prod = 1;
+			for (var i = 1; i <= n; i++)
+				prod *= i;
+			return prod;
+		}
+
+		function calculate(n, mathFunction) {
+			console.log("calculation start at: " + new Date().valueOf());
+			document.getElementById("output").value = mathFunction(n);
+			console.log(document.getElementById("output").value );
+			console.log("calculation end at: " + new Date().valueOf());
+		}
+	</script>
+</head>
+<body>
+	<div>
+		<h1>Please input a number for factorial calculation</h1>
+		<p>Input: <input id="input" type="text"></p>
+		<button onclick="calculate(getElementById('input').value, recursiveFactorial);">Recusion</button>
+		<button onclick="calculate(getElementById('input').value, iterativeFactorial);">Recrusive Iteration</button>
+		<button onclick="calculate(getElementById('input').value, fullIterativeFactorial);">Full Iteration</button>
+		<p>Output: <input id="output" type="text" size="40" disabled></p>
+	</div>
+</body>
+</html>

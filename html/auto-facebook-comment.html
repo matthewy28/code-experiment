@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Auto Commenting</title>
+</head>
+<body>
+	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '1651866545051541',
+			xfbml      : true,
+			version    : 'v2.8'
+		});
+		FB.AppEvents.logPageView();
+	};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<script>
+	var postId = "889250301129715_1230289173692491";
+	var accessTokens = [
+		"EAACEdEose0cBANZAE52T5agSCj5ZBIx91hFhp9brgCHqCb3f0Dl9DpEJ1ZC38UZC1N7GQb21RUzWtoVgZCrAkMmDoYZADXKXGEmtNqsFq7dC4PkHOxnABzZCTQ75PGRaD4IfVB4v2tfp1hnZBOnkLvF8V6DuEvqb6VUlYJm8F6NyXS54zPEZCEUdv"
+	];
+	var messages = ['A', 'a', 'B', 'b', 'C', 'c', "a random message!", "hi there", "let's have fun!"];
+
+	function submitComment() {
+		accessToken = accessTokens[Math.floor(Math.random() * accessTokens.length)];
+		comment = messages[Math.floor(Math.random() * messages.length)];
+		console.log(comment);
+		$.ajax("https://graph.facebook.com/v2.8/" + postId + "/comments", {
+			"data":{"access_token":accessToken, "message":comment},
+			"method":"POST",
+			done: function(response) { console.log(response); }
+	   });
+	   setTimeout(submitComment, Math.floor(Math.random() * 5) * 1000);
+	// setTimeout(submitComment, 200);
+	}
+		// FB.api(
+		// 	'/889250301129715_1230264110361664/comments',
+		// 	'POST',
+		// 	{"message":comment},
+		// 	function(response) {
+		// 		console.log();
+		// 	}
+	submitComment();
+	</script>
+</body>
+</html>

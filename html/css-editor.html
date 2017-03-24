@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>Simple HTML Editor</title>
+	<style type="text/css">
+		#container-editor { width:49%; height:800px; float:left; text-align:left }
+		#container-editor textarea { width:100%; height:100%; resize:none }
+		#container-showcase { width:49%; height:800px; float:right }
+		#container-showcase iframe { width:100%; height:100% }
+	</style>
+	<script type="text/javascript" src="http://192.168.232.74/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var editor = $("#container-editor").find("textarea");
+			var showcase = $("#container-showcase").find("iframe").contents().find("html");
+			editor.on("keyup", function() {
+				showcase.html(editor.val());
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="container-editor">
+		<div> Enter HTML Here</div>
+		<textarea rows="0" cols="0"></textarea>
+	</div>
+	<div id="container-showcase">
+		<div>Result page</div>
+		<iframe></iframe>
+	</div>
+</body>
+</html>

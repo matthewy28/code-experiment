@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title></title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#cs-right-filter-input").on("keyup", function() {
+				$("#cs-right-main").find("tr").hide();
+				var str = $("#cs-right-filter-input").val();
+				$("#cs-right-main").find("td").filter(function() {
+					if ($.trim($(this).text()).match(str) || str.length < 1)
+						$(this).parent().show();
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<table id="table-user-right">
+		<thead>
+			<tr>
+				<th id="user-right-title" colspan="3">
+					Right
+					<input onclick="if($('#cs-right-filter-input').val() == 'Searching by enter product ID here') { $('#cs-right-filter-input').val(''); }" id="cs-right-filter-input" type="text" name="cs-right-filter-input" value="Searching by enter product ID here" style="border:1px solid black; color:#666666; font:arial; height:15px; padding:0 0 0 5px; width:230px">
+				</th>
+			</tr>
+			<tr>
+				<th class="user-right-caption">Product</th>
+				<th class="user-right-caption">Start</th>
+				<th class="user-right-caption">Expiry</th>
+			</tr>
+		</thead>
+		<tbody id="cs-right-main">
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>03/09/2019</td>
+								<td>03/09/2020</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>30/08/2013</td>
+								<td>02/09/2019</td>
+							</tr>
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>700</td>
+								<td>766</td>
+							</tr>
+							<tr class="cs-right-tr im">
+								<td>im</td>
+								<td>600</td>
+								<td>615</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>1000</td>
+								<td>1208</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>01/09/2017</td>
+								<td>01/09/2018</td>
+							</tr>
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>663</td>
+								<td>714</td>
+							</tr>
+							<tr class="cs-right-tr im">
+								<td>im</td>
+								<td>512</td>
+								<td>563</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>1105</td>
+								<td>1156</td>
+							</tr>
+				
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>611</td>
+								<td>662</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>1053</td>
+								<td>1104</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>22/08/2016</td>
+								<td>22/08/2017</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>03/08/2013</td>
+								<td>25/08/2011</td>
+							</tr>
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>559</td>
+								<td>610</td>
+							</tr>
+							<tr class="cs-right-tr im">
+								<td>im</td>
+								<td>460</td>
+								<td>511</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>1001</td>
+								<td>1052</td>
+							</tr>
+				
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>900</td>
+								<td>1000</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>23/08/2013</td>
+								<td>23/08/2014</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>21/08/2015</td>
+								<td>21/08/2016</td>
+							</tr>
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>507</td>
+								<td>558</td>
+							</tr>
+							<tr class="cs-right-tr im">
+								<td>im</td>
+								<td>408</td>
+								<td>459</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>887</td>
+								<td>938</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>20/08/2014</td>
+								<td>20/08/2015</td>
+							</tr>
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>455</td>
+								<td>506</td>
+							</tr>
+							<tr class="cs-right-tr im">
+								<td>im</td>
+								<td>356</td>
+								<td>407</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>835</td>
+								<td>886</td>
+							</tr>
+				
+							<tr class="cs-right-tr iet">
+								<td>iet</td>
+								<td>19/08/2013</td>
+								<td>19/08/2014</td>
+							</tr>
+							<tr class="cs-right-tr um">
+								<td>um</td>
+								<td>403</td>
+								<td>454</td>
+							</tr>
+							<tr class="cs-right-tr im">
+								<td>im</td>
+								<td>304</td>
+								<td>355</td>
+							</tr>
+							<tr class="cs-right-tr ez">
+								<td>ez</td>
+								<td>783</td>
+								<td>834</td>
+							</tr>
+		</tbody>
+	</table>
+</body>
+</html>

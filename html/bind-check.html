@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Bind Event Check</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#tester").bind("click", function() {
+				console.log("clicked");
+			});
+
+			var tester = $("#tester");
+			var t = $("#tester").click();
+			console.log("click event handler, t = :" + $(t).html());
+			$("#container").html("");
+
+			console.log(t);
+			console.log(tester);
+		});
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="tester" style="width:100px; height:100px; border:1px solid #000" onclick="alert(1);">
+			Click
+		</div>
+	<div>
+</body>
+</html>

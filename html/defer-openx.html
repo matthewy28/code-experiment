@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>OpenX Lazy Loading</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script type="text/javascript" src="http://192.168.232.74/js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+	<div id="pre-ad">
+		<div>
+			<div>Testing content</div>
+			<div>place anything here</div>
+		</div>
+		<script type='text/javascript'>
+			var m3_u = 'http://adms.hket.com/openxprod2/www/delivery/ajs.php';
+			var m3_r = Math.floor(Math.random()*99999999999);
+			if (!document.MAX_used) document.MAX_used = ',';
+			document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+			document.write ("?zoneid=1971&amp;charset=UTF-8");
+			document.write ('&amp;cb=' + m3_r);
+			if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+			document.write ('&amp;charset=UTF-8');
+			document.write ("&amp;loc=" + escape(window.location));
+			if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+			if (document.context) document.write ("&context=" + escape(document.context));
+			if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+			document.write ("'><\/scr"+"ipt>");
+		</script>
+	</div>
+	<div class="separator">====================================== separator =======================================================</div>
+	<div id="placeholder"></div>
+	<div class="separator">====================================== separator =======================================================</div>
+	<div id="script-node">
+		<script type='text/javascript'>
+			var m3_u = 'http://adms.hket.com/openxprod2/www/delivery/ajs.php';
+			var m3_r = Math.floor(Math.random()*99999999999);
+			if (!document.MAX_used) document.MAX_used = ',';
+			document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+			document.write ("?zoneid=1971&amp;charset=UTF-8");
+			document.write ('&amp;cb=' + m3_r);
+			if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+			document.write ('&amp;charset=UTF-8');
+			document.write ("&amp;loc=" + escape(window.location));
+			if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+			if (document.context) document.write ("&context=" + escape(document.context));
+			if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+			document.write ("'><\/scr"+"ipt>");
+
+			$(function() {
+				$("#placeholder").replaceWith($("#script-node"));
+			});
+		</script>
+	</div>
+</body>
+</html>

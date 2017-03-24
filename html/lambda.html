@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Pass function as argument</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<script type="text/javascript">
+		var g = function g(x) { return x * x; }
+		function f(g, x) { return x * g(x); }
+		console.log(f(g, 2));
+		console.log(f(function(x) { return x * x * x }, 2));
+
+		var lambda = function(x) { return x + 2 };
+		var result = lambda(function(x) { return x * x}(3));
+		console.log("Result: " + result);
+
+		(function(f) { console.log("function: " + f); })(((function(g) { return g + ", this is lambda" })((function(x) { return x; })("Matthew"))));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

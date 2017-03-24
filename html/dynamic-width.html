@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Dynamic Width</title>
+	<style type="text/css">
+		td img { max-width:100%; max-height:100% }
+	</style>
+</head>
+<body>
+	<textarea style="height:40px; width:200px; border:1px solid black">
+		abc
+	</textarea>
+	<div style="height:40px; width:200px; border:1px solid black">
+		def
+	</div>
+
+	<div>
+		<textarea style="height:40px; width:200px; border:1px solid black; float:left">abc</textarea>
+		<div style="height:40px; min-width:30%; border:1px solid black; float:left">def</div>
+	</div>
+</body>
+</html>

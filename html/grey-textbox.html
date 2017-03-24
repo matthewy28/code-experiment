@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>grey scaled textbox</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$("#controller").on("change keyup", function() {
+				$("#display, #dummy").val($("#controller").val());
+			});
+		});
+	</script>
+</head>
+<body>
+	Type Here:	<input id="controller" type="text" style="color:#545454; background-color:#ebebe4"/>
+	Read ONLY:	<input id="display" type="text" style="color:#545454; background-color:#ebebe4" readonly/>
+	DISABLED:	<input id="dummy" type="text" value="TEXTING STRING" disabled/>
+</body>
+</html>

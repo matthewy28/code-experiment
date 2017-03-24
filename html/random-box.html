@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Random Box</title>
+	<style type="text/css">
+		#content { margin:auto; text-align:center }
+		.random-box { border:1px solid #000; background-color:green; width:150px; height:150px; margin:10px; float:left; cursor:pointer }
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		var totalNumOfBox = 9;
+		var boxPerRow = 3;
+		$(function() {
+			for (var i = 0; i < totalNumOfBox; i++)
+				$("#content").append($("<div>").attr("class", "random-box"));
+			$("#content").css("width", $(".random-box").outerWidth(true) * boxPerRow); // outerWidth(includMarginFlag)
+		});
+	</script>
+	<script type="text/javascript">
+		$.randomBox = function() {
+			
+		}
+	</script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>

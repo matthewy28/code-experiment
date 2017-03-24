@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Prompt Before close</title>
+	<script type="text/javascript">
+		window.onbeforeunload = function(e) {
+			//e = e || window.event;
+			//if (e)
+				//e.returnValue = "Please confirm to exit";
+			return "Please confirm to exit";
+		};
+	</script>
+</head>
+</html>

@@ -1,0 +1,39 @@
+<!-- a simple demo of moving a an element inside its parent along y-axis, should enhance to a plugin in spare time -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Bounded Mouse Move Event Trial</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<style type="text/css">
+		#mouse-container { width:400px; height:500px; background-color:blue; color:white; font-weight:bold; text-align:center; cursor:none; margin:auto }
+		#btn-start { position:absolute; text-align:center; width:400px; font-size:16px }
+		#btn-start:hover { font-size:20px; font-weight:bold }
+		.follower-y { background-color:black; height:1px; width:400px; position:absolute }
+		.follower-x { background-color:black; height:500px; width:1px; position:absolute }
+	</style>
+	<script type="text/javascript" src="http://192.168.232.74/js/jquery-1.10.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var lowBoundY = $("#mouse-container").offset().top;
+			var upBoundY = lowBoundY + $("#mouse-container").height() - $(".follower-y").height();
+			$("#mouse-container").mousemove(function(event) {
+				$(".follower-y").offset({ top: event.pageY < lowBoundY? lowBoundY: event.pageY > upBoundY? upBoundY: event.pageY });
+			});
+
+			var lowBoundX = $("#mouse-container").offset().left;
+			var upBoundX = lowBoundX + $("#mouse-container").width() - $(".follower-x").width();
+			$("#mouse-container").mousemove(function(event) {
+				$(".follower-x").offset({ left: event.pageX < lowBoundX? lowBoundX: event.pageX > upBoundX? upBoundX: event.pageX });
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="mouse-container">
+		<div class="follower-y"></div>
+		<div class="follower-x"></div>
+		<div id="btn-start">Start</div>
+	</div>
+	
+</body>
+</html>

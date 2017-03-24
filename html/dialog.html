@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Dialog Demo</title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<style type="text/css">
+		.hihi { font-size:1000px }
+	</style>
+	<script type="text/javascript" src="http://192.168.232.57/training/game/js/jquery-1.9.0.js"></script>
+	<script type="text/javascript"  src="http://192.168.232.57/training/game/js/jquery-ui.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var dialog = $("#dialog").dialog({
+				autoOpen: false,
+				dialogClass: "hihi",
+				buttons: {
+							"Save": function() {
+								dialog.dialog("close");
+							}
+						}
+			});
+
+		});
+
+		function init() {
+			for (var i = 0; i < 2000; i++)
+				$("#dialog").append($("<div>", { class: "test" }));
+		}
+		function createProblem() {
+			$(".test").on("click", function() {
+				for (var i = 0; i < 100; i++) {
+					$(this).text($(this).text() + i);
+				}
+			});
+		}
+
+		function openDialog() {
+			$("#dialog").dialog("open");
+		};
+	</script>
+</head>
+<body>
+	<div id="dialog" style="border:1px solid #000; padding:50px; background-color:blue">
+		HelloWorld!
+	</div>
+	<div onclick="openDialog();" style="border:1px solid #000">Open</div>
+</body>
+</html>

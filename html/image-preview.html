@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Preview Local Image</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var reader = new FileReader();
+			var imageFiles;
+			var filePath;
+
+			function updateShowcase(file) {
+				reader.readAsDataURL(file)
+			}
+
+			reader.onloadend = function(e) {
+				var image = $('<img>').attr('src', e.target.result);
+				$(image).appendTo('#showcase');
+			};
+
+			$("#file-chooser").on("click", function() {
+				filePath = document.getElementById('file-chooser').value
+				document.getElementById('file-chooser').value = "";
+			});
+
+			$("#file-chooser").on("change", function() {
+				if (filePath)
+				imageFiles = document.getElementById('file-chooser').files
+				$("#showcase").empty();
+				updateShowcase(imageFiles[0]);
+			});
+		});
+	</script>
+</head>
+<body>
+	<input id="file-chooser" type="file" multiple="true" />
+	<div id="showcase"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title>Toggle menu trial</title>
+	<style type="text/css">
+		#epc-menu-bar { margin-top:5px; width:950px; height:26px; background:url('http://ps.hket.com/res/images/decorator/menu.jpg'); font-size:13px; margin-bottom:10px }
+		#epc-menu-bar .epc-menu-btn-selected { text-align:center; background:url('http://ps.hket.com/res/images/decorator/menuSelected.jpg') }
+		#epc-menu-bar .epc-menu-btn-selected a { color:white }
+		#epc-header-search-panel { float:right; line-height:1; height:26px; border-spacing:0; border-collapse:collapse; float:right; border-bottom:0; background-image:url('http://ps.hket.com/res/images/decorator/search-bg.jpg') }
+		#epc-header-search-panel td { height:26px; padding:0 5px }
+		#epc-search-keywords { color:#989797; border-width:1px 0 0 0; outline:0; width:140px; height:21px; background-image:url('http://ps.hket.com/res/images/decorator/bg-search-input.jpg'); background-repeat:no-repeat }
+		#epc-header-search-btn, #epc-header-advance-search-btn { cursor:pointer; height:20px; background:url('http://ps.hket.com/res/images/commons/bg_btn.jpg'); border:1px solid #8a8a8a; padding:0 5px }
+		.epc-menu-btn { height:26px; padding:0 20px; float:left; line-height:185%; cursor:pointer; color:white; text-decoration:none; position:relative; text-align:center }
+		.nav-pointer { background:url('http://192.168.232.74/images/trial/bg-nav-arrow.png') no-repeat; height:10px; width:20px; display:none; position:absolute }
+		.submenu { border:10px solid #777; width:930px; position:absolute; display:none; color:black }
+	</style>
+
+</head>
+<body>
+	<div id="epc-menu-bar">
+		<div class="epc-menu-btn epc-menu-btn-selected" title="首頁">首頁</div>
+		<div class="epc-menu-btn" title="一手數據">
+			<span>一手數據</span>
+			<div class="nav-pointer">&nbsp;</div>
+			<div class="submenu">
+				<span style="float:left">testing</span><span style="float:right">submenu</span>
+			</div>
+		</div>
+		<div class="epc-menu-btn" title="樓市快訊">
+			<span>樓市快訊</span>
+			<div class="nav-pointer">&nbsp;</div>
+			<div class="submenu">
+				<span style="float:left">testing</span><span style="float:right">submenu</span>
+			</div>
+		</div>
+		<div class="epc-menu-btn" title="新盤專頁">
+			<span>新盤專頁</span>
+			<div class="nav-pointer">&nbsp;</div>
+			<div class="submenu">
+				<span style="float:left">testing</span><span style="float:right">submenu</span>
+			</div>
+		</div>
+		<div class="epc-menu-btn" title="地產行事曆">
+			<span>地產行事曆</span>
+			<div class="nav-pointer">&nbsp;</div>
+			<div class="submenu">
+				<span style="float:left">testing</span><span style="float:right">submenu</span>
+			</div>
+		</div>
+		<a class="epc-menu-btn" href="javascript:open('http://www.hket.com');void(0);" title="香港經濟日報">
+			<span>香港經濟日報</span>
+		</a>
+		<table id="epc-header-search-panel">
+			<tr>
+				<td id="epc-search-popup" onclick="popupSearch();" style="cursor:pointer">
+					<table title="新聞搜尋" cellpadding="0" style="border-spacing:0; padding:0; border-collapse:collapse; color:white">
+						<tr>
+							<td><img src="http://ps.hket.com/res/images/decorator/icon-search.jpg" alt="" style="display:block" /></td>
+							<td>搜尋</td>
+							<td><img src="http://ps.hket.com/res/images/decorator/icon-search-detail.jpg" alt="" style="display:block" /></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<div id="epc-search" style="position:absolute; width:260px; height:26px; background-image:url(http://ps.hket.com/res/images/decorator/search-popup-bg.jpg); padding:5px 5px 3px; left:836.5px; top:142px; display:none; background-repeat:repeat no-repeat">
+			<div style="display:table; float:left">
+				<input id="epc-search-keywords" type="text" onfocus="this.style.backgroundImage='none'" maxlength="20" style="float:left; vertical-align:bottom; background-image:url(http://ps.hket.com/res/images/decorator/bg-search-input.jpg)" />
+				<div id="epc-header-search-btn" style="float:left">搜尋</div>
+			</div>
+			<div id="epc-header-advance-search-btn" style="float:right" onclick="window.location='/search/'">詳盡搜尋</div>
+		</div>
+	</div>
+</body>
+</html>
